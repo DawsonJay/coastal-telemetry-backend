@@ -2,6 +2,13 @@
 
 This folder contains the development history for the Coastal Telemetry Interface (CTI) project. Each entry is a timestamped markdown file recording one AI-assisted work session. The purpose is to build an accurate, detailed, gapless history that can later be mined for portfolio notes.
 
+## Canonical location (read this before creating a log)
+
+- **This repository is the CTI backend codebase** (`coastal-telemetry-backend`: NestJS, ingest, Postgres, reference scripts). The **React frontend** lives in a **separate repository** when deployed (for example on Railway).
+- **All dev logs live only here:** every new entry must be a file in **`dev-log/` next to this `README.md`** — the same folder you are reading now in **this** Git repo.
+- **Sessions that only touch the frontend** still produce logs **in this backend repo:** open this repository, add `dev-log/YYYY-MM-DD-HHMM.md` following the procedure below, commit and push **here**. Do **not** create a parallel `dev-log/` in the frontend repo (that would split history and break continuity).
+- **AI assistance:** when asked to “make a dev log” while the chat context is frontend work, create the log file **in this repo’s `dev-log/`** unless the user explicitly points elsewhere.
+
 ---
 
 ## Rules
@@ -14,6 +21,7 @@ This folder contains the development history for the Coastal Telemetry Interface
 6. Chat history is the primary source of truth for what happened in the session. The prior log is read only to find the last recorded boundary.
 7. Entries must be detailed enough to reconstruct the session without the chat.
 8. Vague bullets are not acceptable. Every point must include what was done, why, and what the outcome was.
+9. **Every log file is created in this folder** (`dev-log/` beside this `README.md` in the **backend** repository), regardless of whether the session work was backend-only, frontend-only, or full-stack. Never write CTI dev logs to another repo or path.
 
 ---
 
@@ -45,7 +53,7 @@ Skip this step if no prior log exists.
 
 ### Step 4 — Write the new log file
 
-Create a new file named `<timestamp-from-step-1>.md` in `dev-log/`. Populate it using the template below. Draw content from the current chat history. Use the prior log boundary from Step 3 to frame the "Since Last Log" section.
+Create a new file named `<timestamp-from-step-1>.md` **in this repository’s `dev-log/` directory** (the directory containing this `README.md`). Populate it using the template below. Draw content from the current chat history. Use the prior log boundary from Step 3 to frame the "Since Last Log" section. If your editor is focused on the **frontend** repo, switch to **this backend repo** before writing the file so the log is not created in the wrong project.
 
 ---
 
@@ -143,6 +151,7 @@ List the concrete next steps to be taken in the following session. These should 
 Before finalising an entry, verify:
 
 - [ ] Terminal GMT/UTC timestamp was obtained first and used as the filename
+- [ ] New file path is **`dev-log/<timestamp>.md` in the backend repo** (`coastal-telemetry-backend`, same folder as this README), not the frontend repo
 - [ ] Previous log filename is correctly referenced (or `None`)
 - [ ] "Since Last Log" closes the gap from the prior entry without overlap or duplication
 - [ ] Every completed item includes what, why, and outcome
