@@ -1,0 +1,20 @@
+# Dependencies / build (future backend + tooling)
+node_modules/
+dist/
+build/
+coverage/
+.nyc_output/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+Thumbs.db
+Desktop.ini
+
+# Generated API dumps (large; regenerate with scripts instead of committing)
+marine-realtime-last15m-single-call.geojson
+marine-realtime-last1h-single-call.geojson
+marine-realtime-last24h-single-call.geojson
